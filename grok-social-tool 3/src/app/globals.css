@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0b;
+  color: #e8e8f0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,106,250,0.08) 0%, transparent 60%);
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #111113; }
+::-webkit-scrollbar-thumb { background: #2a2a32; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #4d3fc7; }
+
+/* Selection */
+::selection { background: rgba(124,106,250,0.3); color: #e8e8f0; }
+
+/* Shimmer skeleton */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #18181c 25%,
+    #222228 50%,
+    #18181c 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Prose for assistant output */
+.prose-dark {
+  line-height: 1.7;
+}
+.prose-dark h1, .prose-dark h2, .prose-dark h3 {
+  color: #e8e8f0;
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+.prose-dark h2 { font-size: 1.1rem; }
+.prose-dark h3 { font-size: 1rem; color: #b0b0c8; }
+.prose-dark p { margin-bottom: 0.85em; color: #c8c8d8; }
+.prose-dark ul, .prose-dark ol { 
+  padding-left: 1.25em; 
+  margin-bottom: 0.85em;
+  color: #c8c8d8;
+}
+.prose-dark li { margin-bottom: 0.3em; }
+.prose-dark strong { color: #e8e8f0; }
+.prose-dark code {
+  background: #222228;
+  border: 1px solid #2a2a32;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  color: #7C6AFA;
+}
+.prose-dark blockquote {
+  border-left: 2px solid #4d3fc7;
+  padding-left: 1em;
+  color: #9090a8;
+  font-style: italic;
+}
+.prose-dark hr {
+  border-color: #222228;
+  margin: 1.25em 0;
+}
+
+/* Focus ring */
+.focus-ring:focus-visible {
+  outline: 2px solid #7C6AFA;
+  outline-offset: 2px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
